@@ -14,10 +14,10 @@ const INACTIVE_ICON = 'icons/icon-inactive-19.png';
 var SERVER_URL;
 
 // Online Server
-// SERVER_URL = 'https://yuehu.me/me/readlater';
+SERVER_URL = 'https://yuehu.me/me/readlater';
 
 // Development Server
-SERVER_URL = 'http://127.0.0.1:8000/me/readlater';
+// SERVER_URL = 'http://127.0.0.1:8000/me/readlater';
 
 
 /**
