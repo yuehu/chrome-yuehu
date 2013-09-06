@@ -1,0 +1,10 @@
+{
+  "name": {
+    "message": "阅乎",
+    "description": "插件名称"
+  },
+  "description": {
+    "message": "保存文章到阅读列表。",
+    "description": "插件简介"
+  }
+}

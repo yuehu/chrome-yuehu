@@ -1,0 +1,10 @@
+{
+  "name": {
+    "message": "Yuehu",
+    "description": "Extension name"
+  },
+  "description": {
+    "message": "Put a webpage to your reading list.",
+    "description": "Description of the extension"
+  }
+}
