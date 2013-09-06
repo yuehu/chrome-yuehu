@@ -10,5 +10,9 @@
   "invalidurl": {
     "message": "阅乎不解析该链接。",
     "description": "错误文案"
+  },
+  "success": {
+    "message": "已成功保存该链接。",
+    "description": "成功文案"
   }
 }

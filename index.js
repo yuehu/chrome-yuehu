@@ -4,6 +4,7 @@
  * Copyright (c) 2013 by Hsiaoming Yang.
  */
 
+// TODO: add read later icon to selected websites
 
 /**
  * Observe the DOM changes.

@@ -46,6 +46,7 @@ function record(url) {
         } else {
           setIcon(ACTIVE_ICON);
           localStorage[url] = new Date().valueOf();
+          flashMessage(url, i18n('success'));
         }
       } else {
         flashMessage(url, xhr.status);
