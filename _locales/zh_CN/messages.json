@@ -6,5 +6,9 @@
   "description": {
     "message": "保存文章到阅读列表。",
     "description": "插件简介"
+  },
+  "invalidurl": {
+    "message": "阅乎不解析该链接。",
+    "description": "错误文案"
   }
 }

@@ -1,5 +1,7 @@
 /**
- * Content script for Yuehu
+ * Content scripts for Yuehu.
+ *
+ * Copyright (c) 2013 by Hsiaoming Yang.
  */
 
 
