@@ -12,6 +12,7 @@
   "permissions": [
     "tabs",
     "notifications",
+    "contextMenus",
     "http://*/",
     "https://*/"
   ],

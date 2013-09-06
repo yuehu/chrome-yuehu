@@ -99,6 +99,20 @@ chrome.tabs.onActivated.addListener(function(activeInfo) {
   });
 });
 
+/**
+ * Create context menus.
+ */
+chrome.contextMenus.onClicked.addListener(function(info, tab) {
+  record(info.linkUrl);
+});
+chrome.runtime.onInstalled.addListener(function() {
+  chrome.contextMenus.create({
+    id: 'yuehu',
+    title: i18n('name'),
+    contexts: ['link']
+  });
+});
+
 
 function noop() {};
 
