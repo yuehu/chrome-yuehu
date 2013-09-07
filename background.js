@@ -7,7 +7,7 @@
 /**
  * Defined values.
  */
-const VERSION = '0.1.0';
+const VERSION = '0.1.1';
 const ACTIVE_ICON = 'icons/icon-active-19.png';
 const INACTIVE_ICON = 'icons/icon-inactive-19.png';
 
@@ -25,7 +25,7 @@ SERVER_URL = 'https://yuehu.me/me/readlater';
  */
 function record(url) {
   if (!isValidUrl(url)) {
-    flashMessage(url, i18n('invalidurl'));
+    flashMessage(url, i18n('invalidurl'), i18n('error'));
     return;
   }
 
@@ -42,11 +42,11 @@ function record(url) {
           return newTab(response.location);
         }
         if (response.error) {
-          flashMessage(url, response.error);
+          flashMessage(url, response.error, i18n('error'));
         } else {
           setIcon(ACTIVE_ICON);
           localStorage[url] = new Date().valueOf();
-          flashMessage(url, i18n('success'));
+          flashMessage(url, response.title, i18n('saved'));
         }
       } else {
         flashMessage(url, xhr.status);
@@ -128,10 +128,10 @@ function setIcon(path) {
 /**
  * Flash a message for notification.
  */
-function flashMessage(id, message) {
+function flashMessage(id, message, category) {
   var options = {
     type: 'basic',
-    title: i18n('name'),
+    title: category || i18n('name'),
     message: message,
     iconUrl: 'icons/icon-48.png'
   };
@@ -142,8 +142,8 @@ function flashMessage(id, message) {
 /**
  * Get i18n translation.
  */
-function i18n(name) {
-  return chrome.i18n.getMessage(name);
+function i18n(name, options) {
+  return chrome.i18n.getMessage(name, options);
 }
 
 

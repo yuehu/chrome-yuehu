@@ -11,8 +11,12 @@
     "message": "閱乎不解析該連結。",
     "description": "錯誤文案"
   },
-  "success": {
-    "message": "已成功儲存該連結。",
+  "error": {
+    "message": "錯誤",
+    "description": "錯誤文案"
+  },
+  "saved": {
+    "message": "已儲存",
     "description": "成功文案"
   }
 }

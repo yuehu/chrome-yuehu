@@ -11,8 +11,12 @@
     "message": "阅乎不解析该链接。",
     "description": "错误文案"
   },
-  "success": {
-    "message": "已成功保存该链接。",
+  "error": {
+    "message": "错误",
+    "description": "错误文案"
+  },
+  "saved": {
+    "message": "已保存",
     "description": "成功文案"
   }
 }

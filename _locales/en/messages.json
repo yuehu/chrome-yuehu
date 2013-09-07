@@ -11,8 +11,12 @@
     "message": "Yuehu won't parse this URL.",
     "description": "An error message"
   },
-  "success": {
-    "message": "This URL is saved successfully.",
-    "description": "An success message"
+  "error": {
+    "message": "Error",
+    "description": "Error category"
+  },
+  "saved": {
+    "message": "Saved",
+    "description": "Success category"
   }
 }
