@@ -114,8 +114,19 @@ chrome.runtime.onInstalled.addListener(function() {
   });
 });
 
+/**
+ * Message port connection.
+ */
+chrome.runtime.onConnect.addListener(function(port) {
+  console.assert(port.name === 'yuehu');
+  port.onMessage.addListener(function(msg) {
+    if (msg.url) {
+      record(msg.url);
+    }
+  });
+});
 
-function noop() {};
+function noop() {}
 
 /**
  * Set the browser action icon to active icon.
