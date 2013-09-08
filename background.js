@@ -7,7 +7,7 @@
 /**
  * Defined values.
  */
-const VERSION = '0.1.1';
+const VERSION = '0.1.2';
 const ACTIVE_ICON = 'icons/icon-active-19.png';
 const INACTIVE_ICON = 'icons/icon-inactive-19.png';
 
@@ -146,7 +146,7 @@ function flashMessage(id, message, category) {
     type: 'basic',
     title: category || i18n('name'),
     message: message,
-    iconUrl: 'icons/icon-48.png'
+    iconUrl: 'icons/icon-128.png'
   };
   chrome.notifications.create(id, options, noop);
 }
