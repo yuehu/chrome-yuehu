@@ -11,6 +11,20 @@ const VERSION = '0.1.2';
 const ACTIVE_ICON = 'icons/icon-active-19.png';
 const INACTIVE_ICON = 'icons/icon-inactive-19.png';
 
+/**
+ * Insert google analytics
+ */
+var ga = document.createElement('script');
+ga.type = 'text/javascript';
+ga.async = true;
+ga.src = 'https://ssl.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(ga, s);
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-34098939-1']);
+_gaq.push(['_trackPageview']);
+
+
 var SERVER_URL;
 
 // Online Server
@@ -49,6 +63,7 @@ function record(url) {
           flashMessage(url, response.title, i18n('saved'));
         }
       } else {
+        _gaq.push(['_trackEvent', 'Chrome', 'Fail', url]);
         flashMessage(url, xhr.status);
       }
     }
@@ -83,6 +98,7 @@ function detectStatus(url) {
  * Put current webpage to yuehu reading list when clicked.
  */
 chrome.browserAction.onClicked.addListener(function(tab) {
+  _gaq.push(['_trackEvent', 'Chrome', 'BrowserAction', tab.url]);
   record(tab.url);
 });
 
@@ -105,6 +121,7 @@ chrome.tabs.onActivated.addListener(function(activeInfo) {
  */
 chrome.contextMenus.onClicked.addListener(function(info, tab) {
   if (info.menuItemId === 'yuehu') {
+    _gaq.push(['_trackEvent', 'Chrome', 'ContextMenu', info.linkUrl]);
     record(info.linkUrl);
   }
 });
@@ -123,6 +140,7 @@ chrome.runtime.onConnect.addListener(function(port) {
   console.assert(port.name === 'yuehu');
   port.onMessage.addListener(function(msg) {
     if (msg.url) {
+      _gaq.push(['_trackEvent', 'Chrome', 'Message', msg.url]);
       record(msg.url);
     }
   });
