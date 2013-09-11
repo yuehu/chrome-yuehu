@@ -2,7 +2,6 @@
  * Add yuehu button on www.zhihu.com
  */
 var ZHIHU_PATTERN = /www\.zhihu\.com\/question\/\d+/;
-var ZHIHU_CACHE = {};
 function zhihu() {
   var m = location.href.match(/www\.zhihu\.com\/question\/(\d+)/);
   if (!m) return;
@@ -13,14 +12,16 @@ function zhihu() {
 
   var createIcon = function(item) {
     var token = item.dataset.atoken;
-    if (!token || ZHIHU_CACHE[token] || len(item.innerText) < 200) {
+    if (!token || len(item.innerText) < 200) {
       return;
     }
-    ZHIHU_CACHE[token] = true;
+    if (item.querySelector('.meta-yuehu')) {
+      return;
+    }
 
     var anchor = document.createElement('a');
     anchor.href = 'javascript:;';
-    anchor.className = 'meta-item';
+    anchor.className = 'meta-item meta-yuehu';
     anchor.innerHTML = '<i class="z-icon-collect"></i>' + i18n('name');
 
     anchor.addEventListener('click', function(e) {
