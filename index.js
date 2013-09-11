@@ -8,9 +8,10 @@
 /**
  * Observe the DOM changes.
  */
-function observer(callback) {
+function observer(callback, config) {
+  config = config || {attributes: true, childList: true, characterData: true, subtree: true};
   var mo = new WebKitMutationObserver(callback);
-  mo.observe(document.body, {childList: true});
+  mo.observe(document.body, config);
 }
 
 /**

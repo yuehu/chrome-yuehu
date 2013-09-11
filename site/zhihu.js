@@ -23,10 +23,10 @@ function zhihu() {
     anchor.className = 'meta-item';
     anchor.innerHTML = '<i class="z-icon-collect"></i>' + i18n('name');
 
-    anchor.onclick = function(e) {
+    anchor.addEventListener('click', function(e) {
       e.preventDefault();
       readlater('http://www.zhihu.com/question/' + question + '/answer/' + token);
-    };
+    }, false);
     var position = item.querySelector('.zu-autohide');
     position.parentNode.insertBefore(anchor, position);
   };
@@ -36,5 +36,5 @@ function zhihu() {
   }
 }
 if (ZHIHU_PATTERN.test(location.href)) {
-  observer(zhihu);
+  observer(zhihu, {childList: true});
 }

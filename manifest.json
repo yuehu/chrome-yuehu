@@ -26,6 +26,10 @@
     "default_title": "__MSG_description__",
     "default_icon": "icons/icon-inactive-19.png"
   },
+  "web_accessible_resources": [
+    "icons/icon-active-19.png",
+    "icons/icon-inactive-19.png"
+  ],
   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
   "content_scripts": [
     {
@@ -35,6 +39,15 @@
       "js": [
         "index.js",
         "site/zhihu.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://digg.com/reader"
+      ],
+      "js": [
+        "index.js",
+        "site/digg.js"
       ]
     }
   ]
