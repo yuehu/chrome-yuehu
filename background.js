@@ -7,7 +7,7 @@
 /**
  * Defined values.
  */
-const VERSION = '0.1.2';
+const VERSION = '0.1.3';
 const ACTIVE_ICON = 'icons/icon-active-19.png';
 const INACTIVE_ICON = 'icons/icon-inactive-19.png';
 
@@ -59,7 +59,7 @@ function record(url) {
           flashMessage(url, response.error, i18n('error'));
         } else {
           setIcon(ACTIVE_ICON);
-          localStorage[url] = new Date().valueOf();
+          sessionStorage[url] = new Date().valueOf();
           flashMessage(url, response.title, i18n('saved'));
         }
       } else {
@@ -82,7 +82,7 @@ function record(url) {
  */
 function detectStatus(url) {
   if (isValidUrl(url)) {
-    var cache = localStorage[url];
+    var cache = sessionStorage[url];
     var now = new Date().valueOf();
     // only cache for 1 hour
     if (cache && now - cache < 3600000) {
