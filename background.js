@@ -28,10 +28,10 @@ _gaq.push(['_trackPageview']);
 var SERVER_URL;
 
 // Online Server
-SERVER_URL = 'https://yuehu.me/me/readlater';
+SERVER_URL = 'https://yuehu.me/';
 
 // Development Server
-// SERVER_URL = 'http://127.0.0.1:8000/me/readlater';
+// SERVER_URL = 'http://127.0.0.1:8000/';
 
 
 /**
@@ -45,7 +45,7 @@ function record(url) {
 
   var xhr = new XMLHttpRequest();
 
-  xhr.open('POST', SERVER_URL, true);
+  xhr.open('POST', SERVER_URL + 'me/readlater', true);
 
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
@@ -59,7 +59,7 @@ function record(url) {
           flashMessage(url, response.error, i18n('error'));
         } else {
           setIcon(ACTIVE_ICON);
-          sessionStorage[url] = new Date().valueOf();
+          sessionStorage[url] = response.id;
           flashMessage(url, response.title, i18n('saved'));
         }
       } else {
@@ -82,10 +82,7 @@ function record(url) {
  */
 function detectStatus(url) {
   if (isValidUrl(url)) {
-    var cache = sessionStorage[url];
-    var now = new Date().valueOf();
-    // only cache for 1 hour
-    if (cache && now - cache < 3600000) {
+    if (sessionStorage[url]) {
       setIcon(ACTIVE_ICON);
       return;
     }
@@ -166,8 +163,18 @@ function flashMessage(id, message, category) {
     message: message,
     iconUrl: 'icons/icon-128.png'
   };
-  chrome.notifications.create(id, options, noop);
+  chrome.notifications.create(id, options, function(notificationId) {
+    setTimeout(function() {
+      chrome.notifications.clear(notificationId, noop);
+    }, 2600);
+  });
 }
+chrome.notifications.onClicked.addListener(function(notificationId) {
+  var id = sessionStorage[notificationId];
+  if (id) {
+    newTab(SERVER_URL + 'me/read/' + id);
+  }
+});
 
 
 /**
