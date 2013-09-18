@@ -49,6 +49,15 @@
         "index.js",
         "site/digg.js"
       ]
+    },
+    {
+      "matches": [
+        "https://yuehu.me/*",
+        "http://127.0.0.1:8000/*"
+      ],
+      "js": [
+        "site/yuehu.js"
+      ]
     }
   ]
 }
