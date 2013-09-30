@@ -56,6 +56,7 @@ function record(url) {
           return newTab(response.location);
         }
         if (response.error) {
+          _gaq.push(['_trackEvent', 'Chrome', 'Error', url]);
           flashMessage(url, response.error, i18n('error'));
         } else {
           setIcon(ACTIVE_ICON);
