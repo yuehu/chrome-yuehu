@@ -7,7 +7,7 @@
 /**
  * Defined values.
  */
-const VERSION = '0.1.3';
+const VERSION = '0.1.4';
 const ACTIVE_ICON = 'icons/icon-active-19.png';
 const INACTIVE_ICON = 'icons/icon-inactive-19.png';
 
@@ -65,7 +65,7 @@ function record(url) {
         }
       } else {
         _gaq.push(['_trackEvent', 'Chrome', 'Fail', url]);
-        flashMessage(url, xhr.status);
+        flashMessage(url, 'Code: ' + xhr.status);
       }
     }
   };
@@ -138,8 +138,8 @@ chrome.runtime.onConnect.addListener(function(port) {
   console.assert(port.name === 'yuehu');
   port.onMessage.addListener(function(msg) {
     if (msg.url) {
-      _gaq.push(['_trackEvent', 'Chrome', 'Message', msg.url]);
       record(msg.url);
+      _gaq.push(['_trackEvent', 'Chrome', 'Message', msg.url]);
     }
     if (msg.site) {
       _gaq.push(['_trackEvent', 'Chrome', 'Site', msg.site]);
