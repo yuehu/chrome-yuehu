@@ -3,6 +3,10 @@
     "message": "閱乎",
     "description": "插件名稱"
   },
+  "short_name": {
+    "message": "閱乎",
+    "description": "插件名稱"
+  },
   "description": {
     "message": "儲存文章到閱讀列表。",
     "description": "插件簡介"

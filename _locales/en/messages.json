@@ -3,6 +3,10 @@
     "message": "Yuehu",
     "description": "Extension name"
   },
+  "short_name": {
+    "message": "yuehu",
+    "description": "Extension short name"
+  },
   "description": {
     "message": "Put a webpage to your reading list.",
     "description": "Description of the extension"
