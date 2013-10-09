@@ -39,4 +39,6 @@ function digg() {
 
 }
 
-observer(digg, {subtree: true, childList: true});
+if (/^https?:\/\/digg\.com\/reader/.test(location.href)) {
+  observer(digg, {subtree: true, childList: true});
+}
