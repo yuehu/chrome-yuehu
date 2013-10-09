@@ -36,3 +36,11 @@ var port = chrome.runtime.connect({name: 'yuehu'});
 function readlater(url) {
   port.postMessage({url: url});
 }
+
+/**
+ * require and execute the site script.
+ */
+function execSite(name) {
+  var script = 'site/' + name + '.js';
+  port.postMessage({script: script});
+}

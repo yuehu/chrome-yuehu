@@ -35,39 +35,12 @@
   "content_scripts": [
     {
       "matches": [
-        "http://www.zhihu.com/question/*"
+        "https://*/*",
+        "http://*/*"
       ],
       "js": [
         "index.js",
-        "site/zhihu.js"
-      ]
-    },
-    {
-      "matches": [
-        "https://digg.com/reader"
-      ],
-      "js": [
-        "index.js",
-        "site/digg.js"
-      ]
-    },
-    {
-      "matches": [
-        "https://cloud.feedly.com/*",
-        "http://cloud.feedly.com/*"
-      ],
-      "js": [
-        "index.js",
-        "site/feedly.js"
-      ]
-    },
-    {
-      "matches": [
-        "https://yuehu.me/*",
-        "http://127.0.0.1:8000/*"
-      ],
-      "js": [
-        "site/yuehu.js"
+        "site/index.js"
       ]
     }
   ]

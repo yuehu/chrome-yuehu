@@ -28,10 +28,10 @@ _gaq.push(['_trackPageview']);
 var SERVER_URL;
 
 // Online Server
-SERVER_URL = 'https://yuehu.me/';
+// SERVER_URL = 'https://yuehu.me/';
 
 // Development Server
-// SERVER_URL = 'http://127.0.0.1:8000/';
+SERVER_URL = 'http://127.0.0.1:8000/';
 
 
 /**
@@ -143,6 +143,9 @@ chrome.runtime.onConnect.addListener(function(port) {
     }
     if (msg.site) {
       _gaq.push(['_trackEvent', 'Chrome', 'Site', msg.site]);
+    }
+    if (msg.script) {
+      chrome.tabs.executeScript(null, {file: msg.script});
     }
   });
 });
