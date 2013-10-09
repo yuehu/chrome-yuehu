@@ -52,6 +52,16 @@
     },
     {
       "matches": [
+        "https://cloud.feedly.com/*",
+        "http://cloud.feedly.com/*"
+      ],
+      "js": [
+        "index.js",
+        "site/feedly.js"
+      ]
+    },
+    {
+      "matches": [
         "https://yuehu.me/*",
         "http://127.0.0.1:8000/*"
       ],
