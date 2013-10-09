@@ -240,6 +240,8 @@ function isValidUrl(url) {
     'weibo.com',
     'www.weibo.com',
     'twitter.com',
+    'stackoverflow.com',
+    'www.stackoverflow.com',
     'quora.com',
     'www.quora.com'
   ];
