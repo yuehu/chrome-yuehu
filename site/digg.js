@@ -3,8 +3,20 @@
  */
 
 
-function digg() {
-  var items = document.querySelectorAll('.feeditem-list');
+function digg(mutations) {
+
+  var items = [];
+  mutations.forEach(function(mu) {
+    if (mu.target) {
+      var entries = mu.target.querySelectorAll('.feeditem-list');
+      for (var i = 0; i < entries.length; i++) {
+        var item = entries[i];
+        if (item && item.querySelector) {
+          items.push(item);
+        }
+      }
+    }
+  });
 
   var createIcon = function(item) {
     if (item.querySelector('.story-action-yuehu')) {
