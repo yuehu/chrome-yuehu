@@ -141,6 +141,9 @@ chrome.runtime.onConnect.addListener(function(port) {
       _gaq.push(['_trackEvent', 'Chrome', 'Message', msg.url]);
       record(msg.url);
     }
+    if (msg.site) {
+      _gaq.push(['_trackEvent', 'Chrome', 'Site', msg.site]);
+    }
   });
 });
 

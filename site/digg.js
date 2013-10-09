@@ -22,6 +22,7 @@ function digg() {
       if (e.target === anchor || e.target === li) {
         e.preventDefault();
         readlater(item.querySelector('.timestamp').href);
+        port.postMessage({site: 'Digg'});
       }
     }, true);
 

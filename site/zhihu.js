@@ -27,6 +27,7 @@ function zhihu() {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
       readlater('http://www.zhihu.com/question/' + question + '/answer/' + token);
+      port.postMessage({site: 'Zhihu'});
     }, false);
     var position = item.querySelector('.zu-autohide');
     position.parentNode.insertBefore(anchor, position);
