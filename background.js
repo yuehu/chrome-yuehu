@@ -28,10 +28,10 @@ _gaq.push(['_trackPageview']);
 var SERVER_URL;
 
 // Online Server
-// SERVER_URL = 'https://yuehu.me/';
+SERVER_URL = 'https://yuehu.me/';
 
 // Development Server
-SERVER_URL = 'http://127.0.0.1:8000/';
+// SERVER_URL = 'http://127.0.0.1:8000/';
 
 
 /**
@@ -73,7 +73,7 @@ function record(url) {
   var body = new FormData();
   body.append('url', url);
 
-  xhr.setRequestHeader('X-Chrome-Extension', VERSION);
+  xhr.setRequestHeader('X-Browser-Extension', 'Chrome ' + VERSION);
   xhr.send(body);
 }
 
