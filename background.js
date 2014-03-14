@@ -7,9 +7,9 @@
 /**
  * Defined values.
  */
-const VERSION = '0.1.4';
-const ACTIVE_ICON = 'icons/icon-active-19.png';
-const INACTIVE_ICON = 'icons/icon-inactive-19.png';
+var VERSION = '0.1.4';
+var ACTIVE_ICON = 'icons/icon-active-19.png';
+var INACTIVE_ICON = 'icons/icon-inactive-19.png';
 
 /**
  * Insert google analytics
@@ -28,7 +28,7 @@ _gaq.push(['_trackPageview']);
 var SERVER_URL;
 
 // Online Server
-SERVER_URL = 'https://yuehu.me/';
+SERVER_URL = 'http://yuehu.io/';
 
 // Development Server
 // SERVER_URL = 'http://127.0.0.1:8000/';
@@ -45,7 +45,7 @@ function record(url) {
 
   var xhr = new XMLHttpRequest();
 
-  xhr.open('POST', SERVER_URL + 'me/readlater', true);
+  xhr.open('POST', SERVER_URL + 'me/bookmarks', true);
 
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
@@ -60,7 +60,7 @@ function record(url) {
           flashMessage(url, response.error, i18n('error'));
         } else {
           setIcon(ACTIVE_ICON);
-          sessionStorage[url] = response.id;
+          sessionStorage[url] = response.url;
           flashMessage(url, response.title, i18n('saved'));
         }
       } else {
@@ -177,9 +177,9 @@ function flashMessage(id, message, category) {
   });
 }
 chrome.notifications.onClicked.addListener(function(notificationId) {
-  var id = sessionStorage[notificationId];
-  if (id) {
-    newTab(SERVER_URL + 'me/read/' + id);
+  var url = sessionStorage[notificationId];
+  if (url) {
+    newTab(SERVER_URL + url.slice(1));
   }
 });
 
