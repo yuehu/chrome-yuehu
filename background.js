@@ -55,9 +55,9 @@ function record(url) {
         if (response.location) {
           return newTab(response.location);
         }
-        if (response.error) {
+        if (response.message) {
           _gaq.push(['_trackEvent', 'Chrome', 'Error', url]);
-          flashMessage(url, response.error, i18n('error'));
+          flashMessage(url, response.message, i18n('error'));
         } else {
           setIcon(ACTIVE_ICON);
           sessionStorage[url] = response.url;
@@ -71,7 +71,7 @@ function record(url) {
   };
 
   var body = new FormData();
-  body.append('url', url);
+  body.append('uuid', url);
 
   xhr.setRequestHeader('X-Browser-Extension', 'Chrome ' + VERSION);
   xhr.send(body);
