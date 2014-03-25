@@ -7,7 +7,7 @@
 /**
  * Defined values.
  */
-var VERSION = '0.1.4';
+var VERSION = '0.2.1';
 var ACTIVE_ICON = 'icons/icon-active-19.png';
 var INACTIVE_ICON = 'icons/icon-inactive-19.png';
 
