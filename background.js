@@ -55,13 +55,13 @@ function record(url) {
         if (response.location) {
           return newTab(response.location);
         }
-        if (response.message) {
-          _gaq.push(['_trackEvent', 'Chrome', 'Error', url]);
-          flashMessage(url, response.message, i18n('error'));
-        } else {
+        if (response.url) {
           setIcon(ACTIVE_ICON);
           sessionStorage[url] = response.url;
           flashMessage(url, response.title, i18n('saved'));
+        } else if (response.message) {
+          _gaq.push(['_trackEvent', 'Chrome', 'Error', url]);
+          flashMessage(url, response.message, i18n('error'));
         }
       } else {
         _gaq.push(['_trackEvent', 'Chrome', 'Fail', url]);
