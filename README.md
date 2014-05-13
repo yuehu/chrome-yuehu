@@ -1,6 +1,6 @@
 # Chrome Extension for Yuehu
 
-This is a chrome extension for <https://yuehu.me/>, you can install it from
+This is a chrome extension for <https://yuehu.io/>, you can install it from
 [Chrome Web Store](https://chrome.google.com/webstore/detail/eggjaaihinpppofbllpdboemabgljaie).
 
 
